@@ -1,0 +1,76 @@
+﻿<Window x:Class="BD_labs.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BD_labs"
+        mc:Ignorable="d"
+        Title="АРМ секретаря приймальної комісії" Height="450" Width="800" ResizeMode="CanMinimize" Closing="OnClosing" WindowStartupLocation="CenterScreen" >
+    <Grid Margin="-2,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <MenuItem Header="Переглянути" FontFamily="Century Schoolbook" Height="23" FontSize="13" >
+                <MenuItem Header="Дані" FontFamily="Century Schoolbook" Height="23" FontSize="13">
+                    <MenuItem x:Name="Spec" Header="Спеціальності" Click="Spec_Click"/>
+                    <MenuItem x:Name="Dep" Header="Факультети" Click="Dep_Click"/>
+                    <MenuItem x:Name="Sub" Header="Предмети"/>
+                </MenuItem>
+                <MenuItem x:Name="Enrolles" Header="Абітурієнти" Click="Enrolles_Click"    />
+            </MenuItem>
+            <MenuItem Header="Додати" FontFamily="Century Schoolbook" Height="23" FontSize="13" >
+                <MenuItem x:Name="Add_spec" Header="Спеціальність"  />
+                <MenuItem x:Name="Add_dep" Header="Факультет"  />
+                <MenuItem x:Name="Add_sub" Header="Предмет"  />
+                <MenuItem x:Name="Add_ds" Header="Спеціальність до факультету"  />
+            </MenuItem>
+            <MenuItem Header="Програма" FontFamily="Century Schoolbook" Height="23" FontSize="13" >
+                <MenuItem x:Name="Inf" Header="Інформація про додаток"  />
+                <MenuItem x:Name="Back" Header="Повернутись до стартового вікна" Click="Back_Click"  />
+                <Separator/>
+                <MenuItem x:Name="Exit" Header="Вихід" Click="Exit_Click"  />
+            </MenuItem>
+        </Menu>
+
+        <Button x:Name="AddAb" Margin="326,39,326,312" Grid.ColumnSpan="2" >
+            <TextBlock Text="Додати абітурієнта" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Century Schoolbook" FontSize="20" FontWeight="Bold" Height="49" LineHeight="16" Width="132"/>
+        </Button>
+        <Button x:Name="NumApp" Margin="201,112,30,199" >
+            <TextBlock Text="Кількість поданих заяв на обраній спеціальності" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Century Schoolbook" FontSize="18" FontWeight="Bold" Height="94" LineHeight="16" Width="164"/>
+        </Button>
+        <Button x:Name="Rating" Margin="30,112,201,199" Grid.Column="1" >
+            <TextBlock Text="Рейтинг абітурієнтів на обраній спеціальності" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Century Schoolbook" FontSize="18" FontWeight="Bold" Height="94" LineHeight="16" Width="164"/>
+        </Button>
+        <Button x:Name="Comp" Margin="314,225,314,117" Grid.ColumnSpan="2" >
+            <TextBlock Text="Конкурс на обраній спеціальності" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Century Schoolbook" FontSize="18" FontWeight="Bold" Height="64" LineHeight="16" Width="156"/>
+        </Button>
+        <Grid x:Name="InputBox" Visibility="Collapsed" Grid.ColumnSpan="2">
+            <Grid Background="Black" Opacity="0.5"/>
+            <Border
+            MinWidth="250"
+            BorderBrush="Black" 
+            BorderThickness="1" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Margin="5" Text="Оберіть рік вступу:" FontWeight="Bold" FontFamily="Century Schoolbook" />
+                    <ComboBox x:Name="InputComboBox" Height="24" Width="148" HorizontalAlignment="Center" FontFamily="Century Schoolbook"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="OkButton" Margin="5" Content="Відкрити" Background="{x:Null}" Click="OkButton_Click" FontFamily="Century Schoolbook"/>
+                        <Button x:Name="CancelButton" Margin="5" Content="Скасувати" Background="{x:Null}" Click="CancelButton_Click" FontFamily="Century Schoolbook" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Button Content="Button" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="75"/>
+        </Grid>
+        <ComboBox HorizontalAlignment="Left" Height="25" Margin="10,315,0,0" VerticalAlignment="Top" Width="136" Grid.Column="1"/>
+        <ComboBox HorizontalAlignment="Left" Height="25" Margin="10,345,0,0" VerticalAlignment="Top" Width="136" Grid.Column="1"/>
+        <ComboBox HorizontalAlignment="Left" Height="25" Margin="10,375,0,0" VerticalAlignment="Top" Width="136" Grid.Column="1"/>
+        <Label Content="Факультет" HorizontalAlignment="Left" Margin="256,315,0,0" VerticalAlignment="Top" Width="111" Height="25" FontFamily="Century Schoolbook"/>
+        <Label Content="Спеціальність" HorizontalAlignment="Left" Margin="256,345,0,0" VerticalAlignment="Top" Width="111" Height="25" FontFamily="Century Schoolbook"/>
+        <Label Content="Курс" HorizontalAlignment="Left" Margin="256,375,0,0" VerticalAlignment="Top" Width="111" Height="25" FontFamily="Century Schoolbook"/>
+
+    </Grid>
+</Window>

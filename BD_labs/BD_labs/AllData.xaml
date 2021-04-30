@@ -1,0 +1,76 @@
+﻿<Window x:Class="BD_labs.AllData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BD_labs"
+        mc:Ignorable="d"
+        Title="АРМ секретаря приймальної комісії" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Grid>
+        <Menu Height="23" VerticalAlignment="Top">
+            <MenuItem Header="Програма" FontFamily="Century Schoolbook" Height="23"  >
+                <MenuItem x:Name="Inf" Header="Інформація про додаток"  />
+                <MenuItem Header="Повернутись "  >
+                    <MenuItem x:Name="MainW" Header="У головне вікно" Click="MainW_Click"  />
+                    <MenuItem x:Name="StartW" Header="У стартове вікно" Click="StartW_Click"  />
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="Exit" Header="Вихід" Click="Exit_Click"  />
+
+            </MenuItem>
+            <MenuItem Header="Додати">
+                <MenuItem Header="Спеціальність"/>
+                <MenuItem Header="Факультет"/>
+                <MenuItem Header="Предмет"/>
+                <MenuItem Header="Спеціальність до факультету"/>
+            </MenuItem>
+        </Menu>
+        <TabControl HorizontalAlignment="Left" Height="381" Margin="10,28,0,0" VerticalAlignment="Top" Width="772">
+            <TabItem x:Name="Specialties" Header="Спеціальності" FontFamily="Century Schoolbook" Margin="-2,-2,-2,0">
+                <Grid Background="#FFE5E5E5">
+                    <ListView HorizontalAlignment="Left" Height="335" Margin="10,10,0,0" VerticalAlignment="Top" Width="746">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=AbbSp}" Width="100">Абревіатура</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=MameSpUA}" Width="150">Назва українською</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=MameSpENG}" Width="150">Назва англійською</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Departments" Header="Факультети" FontFamily="Century Schoolbook" Margin="3,-2,-3,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="249*"/>
+                        <ColumnDefinition Width="134*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="260" Margin="10,36,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Спеціальності на вибраному факультеті" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="248"/>
+                    <ListView Height="335" Margin="10,10,10,0" VerticalAlignment="Top">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=AbbDep}" Width="100">Абревіатура</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=MameDepUA}" Width="150">Назва українською</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=MameDepENG}" Width="150">Назва англійською</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Subjects" Header="Предмети" FontFamily="Century Schoolbook" Margin="4,-2,-8,0" >
+                <Grid Background="#FFE5E5E5">
+                    <ListView HorizontalAlignment="Left" Height="335" Margin="10,10,0,0" VerticalAlignment="Top" Width="567">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=MameSubUA}" Width="200">Назва українською</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=MameSubENG}" Width="200">Назва англійською</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
